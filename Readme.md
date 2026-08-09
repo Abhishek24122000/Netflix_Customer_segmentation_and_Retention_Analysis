@@ -293,7 +293,7 @@ Payment activity increased by 768 payments from June to July 2023.
 
 This represents an approximate 88.7% increase.
 
-````markdown
+
 # What We Built
 
 ### 1. Data Processing
@@ -359,19 +359,19 @@ Revenue was analysed across:
 - **United States + Spain contribute 36.2% of total revenue.**
 - **Laptop users generate the highest device-level revenue.**
 
----
+
 
 ### 4. Churn Analysis
 
 A churn indicator was created using payment recency:
 
-```text
+
 Days Since Last Payment
           ↓
        > 30 Days
           ↓
         Churn
-````
+
 
 Churn was subsequently analysed across:
 
@@ -382,7 +382,7 @@ Churn was subsequently analysed across:
 
 The resulting classification identifies **100% of customers as churned**.
 
----
+
 
 # Key Retention Driver
 
@@ -402,7 +402,7 @@ However, the correlation analysis does not establish a meaningful statistical re
 | Age ↔ Days Since Last Payment             |   **-0.01** |
 | Monthly Revenue ↔ Days Since Last Payment |    **0.01** |
 
----
+
 
 # Predictive Modelling Limitation
 
@@ -430,7 +430,7 @@ Therefore, the project currently does not report:
 
 > **Because the churn target contains only one class, meaningful supervised classification cannot be performed using the current churn definition.**
 
----
+
 
 # Business Application
 
@@ -438,7 +438,7 @@ Therefore, the project currently does not report:
 
 Prioritise customers using:
 
-```text
+
 Payment Recency
        ↓
 Subscription Value
@@ -446,7 +446,7 @@ Subscription Value
 Geography
        ↓
 Device
-```
+
 
 Focus particularly on:
 
@@ -455,7 +455,7 @@ Focus particularly on:
 * **Customers with extended payment gaps**
 * **Customers contributing greater monthly revenue**
 
----
+
 
 ## 2. Target
 
@@ -468,7 +468,6 @@ Potential retention strategies include:
 | **Long Payment Gaps**      | Re-engagement campaigns                      |
 | **Device-Specific Groups** | Targeted product and experience improvements |
 
----
 
 ## 3. Recover
 
@@ -480,7 +479,6 @@ Measure:
 * Campaign conversion rate
 * Revenue recovered per campaign
 
----
 
 ## 4. Improve
 
@@ -493,7 +491,6 @@ A production-ready retention system should:
 5. Rank customers by predicted churn probability.
 6. Measure retention campaign ROI.
 
----
 
 # Key Business Benefits
 
@@ -517,16 +514,12 @@ A production-ready retention system should:
 
 # Project Structure
 
-```text
 Netflix-Customer-Segmentation-Retention/
 │
 ├── Netflix Customer Segmentation & Retention Analysis.ipynb
 ├── README.md
 └── data/
     └── netflix_customer_data.csv
-```
-
----
 
 # Tools & Technologies
 
@@ -561,5 +554,4 @@ The analysis also highlights an important modelling limitation: the current chur
 
 The next stage would be to establish a **time-aware churn definition**, create both active and churned customer classes, and develop a **predictive retention model** capable of identifying customers at risk before they become inactive.
 
-```
-```
+
