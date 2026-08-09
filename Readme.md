@@ -1,199 +1,376 @@
-# Netflix Customer Segmentation & Retention Analysis
+## Netflix Customer Segmentation & Retention Analysis
+What This Project Does
+
+This project analyses a 2,500-user Netflix customer dataset to understand customer demographics, subscription behaviour, revenue distribution, device usage, payment activity, and churn patterns.
+
+The analysis transforms customer-level subscription data into actionable insights around:
+
+Customer demographics
+Subscription preferences
+Revenue contribution
+Geographic concentration
+Device usage
+Payment recency
+Customer churn
+Retention opportunities
+
+The overall objective is to identify customer groups, quantify revenue exposure, understand churn behaviour, and support data-driven retention strategies.
+
+The Problem We Solve
+2,500 customers are analysed across demographic, subscription, geographic, device, and payment attributes.
+Customers need to be differentiated by their subscription behaviour, revenue contribution, and payment activity.
+Revenue is distributed differently across subscription plans, countries, and devices.
+Customers with extended payment gaps need to be identified as potential churn risks.
+The business needs to understand where retention efforts could have the greatest revenue impact.
+
+The analysis defines a customer as churned when Days Since Last Payment > 30 days.
+
+Under this definition, all 2,500 customers are classified as churned, resulting in $31,271 of monthly revenue being associated with churned customers.
+
+The Solution We Built
+
+A customer analytics framework that:
+
+Segments customers across demographics, subscriptions, geography, and devices.
+Analyses revenue contribution across plans, countries, and devices.
+Measures payment recency to identify churn.
+Quantifies churn across customer segments.
+Calculates monthly revenue associated with churn.
+Analyses customer acquisition and payment activity over time.
+Identifies retention opportunities based on customer and revenue characteristics.
+Business Results
+Customer Insights
+2,500 Customers Analysed
+
+The dataset contains:
+
+2,500 users
+10 customer attributes
+0 missing values across the displayed dataset
+3 numerical variables
+7 categorical/date variables
+
+The dataset includes User ID, Subscription Type, Monthly Revenue, Join Date, Last Payment Date, Country, Age, Gender, Device, and Plan Duration.
+
+Age Distribution
+Age Group	Users	Share
+18–24	0	0%
+25–34	916	36.6%
+35–44	999	40.0%
+45–54	585	23.4%
+55–64	0	0%
+65+	0	0%
+
+76.6% of customers are between 25 and 44 years old.
+
+The 35–44 age group is the largest customer segment, with 999 users.
+
+Gender Distribution
+Male: 1,257 — 50.28%
+Female: 1,243 — 49.72%
+
+The customer base is almost evenly divided by gender, with only 14 more male customers than female customers.
+
+Subscription Insights
+Subscription	Users	Share
+Basic	999	40.0%
+Standard	768	30.7%
+Premium	733	29.3%
+
+Basic is the largest subscription segment, representing approximately 40% of the customer base.
+
+Basic also remains the largest subscription within each major age group.
+
+25–34
+Basic: 354
+Premium: 285
+Standard: 277
+35–44
+Basic: 405
+Standard: 315
+Premium: 279
+45–54
+Basic: 240
+Standard: 176
+Premium: 169
+Revenue Results
 
-## Project Overview
+The dataset generates:
 
-Customer retention is one of the most important business challenges for subscription-based platforms like Netflix. Acquiring new users is expensive, making it essential to understand customer behavior, identify churn patterns, and uncover opportunities to improve long-term retention.
+$31,271 in Total Monthly Revenue
+Plan	Monthly Revenue	Revenue Share
+Basic	$12,469	39.9%
+Standard	$9,573	30.6%
+Premium	$9,229	29.5%
+Total	$31,271	100%
 
-This project performs an end-to-end exploratory data analysis (EDA) on a Netflix user dataset using **Python**, **Pandas**, **NumPy**, **Matplotlib**, and **Seaborn**. The analysis focuses on customer demographics, subscription behavior, revenue trends, device usage, and churn indicators to generate actionable business insights.
+Basic generates the highest total monthly revenue, primarily because it has the largest customer population.
 
----
+Approximate revenue per customer:
 
-## Objectives
+Basic: $12.48
+Standard: $12.46
+Premium: $12.59
 
-- Analyze customer demographics and subscription behavior.
-- Identify high-value customer segments.
-- Understand churn patterns using payment activity.
-- Measure revenue loss caused by customer churn.
-- Explore relationships between numerical variables.
-- Generate business recommendations based on data-driven insights.
+Premium has the highest approximate revenue per customer, despite having fewer customers than Basic.
 
----
+Geographic Insights
+Top Revenue Markets
+Country	Monthly Revenue
+United States	$5,664
+Spain	$5,662
+Canada	$3,950
+United Kingdom	$2,318
+Italy	$2,317
+France	$2,307
+Brazil	$2,285
+Australia	$2,271
+Germany	$2,260
+Mexico	$2,237
 
-## Tech Stack
+United States and Spain generate $11,326, representing approximately 36.2% of total monthly revenue.
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
+The United States, Spain, and Canada therefore represent the highest-revenue markets in the dataset.
 
----
+Device Insights
+Device	Users	Share
+Laptop	636	25.4%
+Tablet	633	25.3%
+Smartphone	621	24.8%
+Smart TV	610	24.4%
 
-## Dataset Features
+Device usage is highly balanced, with no single device accounting for more than 25.4% of customers.
 
-The dataset contains information related to Netflix subscribers, including:
+Revenue by Device
+Device	Monthly Revenue
+Laptop	$7,999
+Tablet	$7,971
+Smartphone	$7,691
+Smart TV	$7,615
 
-- User ID
-- Name
-- Age
-- Gender
-- Country
-- Subscription Type
-- Monthly Revenue
-- Join Date
-- Last Payment Date
-- Device
-- Plan Duration
+Laptop users generate the highest total monthly revenue among the four device groups.
 
-Additional engineered feature:
+Churn & Retention Results
 
-- **Churn**
-  - Created using **Days Since Last Payment**
-  - Users with more than 30 days since their last payment are considered churned.
+The analysis defines churn using:
 
----
+Days Since Last Payment > 30 days → Churn = True
 
-## Exploratory Data Analysis
+Under this definition:
 
-The project includes comprehensive visualizations and business-focused analysis such as:
+2,500 / 2,500 customers = 100% churn
+Churn by Subscription
+Plan	Churned Users	Churn Rate
+Basic	999	100%
+Premium	733	100%
+Standard	768	100%
+Churn by Device
+Device	Churned Users
+Laptop	636
+Tablet	633
+Smartphone	621
+Smart TV	610
 
-### Customer Analysis
+Because all customers are classified as churned, the device and subscription counts represent the entire customer population rather than meaningful differences in churn rates.
 
-- Age Distribution
-- Gender Distribution
-- Customer Segmentation
-- Country-wise User Distribution
+Revenue at Risk
 
-### Subscription Analysis
+The analysis identifies:
 
-- Subscription Type Distribution
-- Subscription Type by Gender
-- Subscription Type by Age Group
-- Revenue by Subscription Type
+$31,271 Monthly Revenue Classified as Churned
 
-### Revenue Analysis
+This represents:
 
-- Monthly Revenue Distribution
-- Revenue by Country
-- Revenue by Device
-- Revenue Loss due to Churn
+100% of the dataset's calculated monthly revenue
 
-### Device Analysis
+The figure represents the sum of monthly revenue belonging to customers classified as churned under the notebook's 30-day payment-recency definition.
 
-- Device Usage Distribution
-- Device-wise Revenue
-- Device-wise Churn Analysis
+Customer Acquisition Insights
 
-### Churn Analysis
+The customer acquisition analysis covers September 2021 to June 2023.
 
-- Churn Distribution
-- Churn by Subscription Type
-- Churn by Country
-- Churn by Device
-- Days Since Last Payment Distribution
+Major Acquisition Periods
+Month	New Users
+October 2022	521
+July 2022	481
+August 2022	382
+September 2022	367
+June 2022	295
+November 2022	295
 
-### Correlation Analysis
+October 2022 was the strongest acquisition month, contributing 521 users, approximately 20.8% of the entire dataset.
 
-- Correlation Matrix between:
-  - Age
-  - Monthly Revenue
-  - Days Since Last Payment
-  - Churn
+Customer acquisition experienced its strongest concentration during mid-to-late 2022.
 
----
+Payment Activity
 
-# Key Insights
+The payment activity analysis shows:
 
-## 1. Customer Churn is a Critical Business Issue
+June 2023: 866 payments
+July 2023: 1,634 payments
 
-The analysis shows that the majority of customers fall into the churn category based on payment inactivity. This indicates a serious customer retention problem that directly impacts recurring revenue.
+Payment activity increased by 768 payments from June to July 2023.
 
----
+This represents an approximate 88.7% increase.
 
-## 2. Premium Subscribers Generate the Highest Revenue but Also Represent the Largest Revenue Risk
+What We Built
+1. Data Processing
 
-Premium subscribers contribute the highest monthly revenue. However, they also account for the largest proportion of churn-related revenue loss.
+The project uses a customer-level dataset containing:
 
-**Business Recommendation**
+2,500 records
+10 columns
+User ID
+Subscription Type
+Monthly Revenue
+Join Date
+Last Payment Date
+Country
+Age
+Gender
+Device
+Plan Duration
 
-- Loyalty rewards
-- Personalized recommendations
-- Premium-exclusive content
-- Early renewal incentives
+All 2,500 records contain non-null values across the displayed columns.
 
----
+2. Customer Segmentation
 
-## 3. Mobile Devices Dominate User Activity
+Customers are segmented across four major dimensions:
 
-Smartphones and tablets are the most frequently used devices for streaming.
+Demographic Segmentation
+Age
+Gender
+Country
+Commercial Segmentation
+Basic
+Standard
+Premium
+Technology Segmentation
+Smartphone
+Tablet
+Laptop
+Smart TV
 
-Although these devices contribute significantly to platform engagement, they also experience comparatively higher churn.
+This provides a multi-dimensional view of customer behaviour and revenue contribution.
 
-**Business Recommendation**
+3. Revenue Analysis
 
-- Improve mobile streaming experience
-- Optimize app performance
-- Offer device-specific promotions
+Revenue was analysed across:
 
----
+Subscription type
+Country
+Device
+Key Findings
+Basic has the highest total revenue.
+Premium has the highest approximate revenue per customer.
+United States and Spain contribute 36.2% of total revenue.
+Laptop users generate the highest device-level revenue.
+4. Churn Analysis
 
-## 4. Revenue Loss from Churn is Significant
+A churn indicator was created using payment recency:
 
-The estimated revenue loss from churned users exceeds **$31,000**.
+Days Since Last Payment
+          |
+          v
+       > 30 Days
+          |
+          v
+        Churn
 
-Recovering even a small percentage of these customers could generate substantial recurring revenue.
+Churn was subsequently analysed across:
 
----
+Subscription type
+Country
+Device
+Monthly revenue
 
-## 5. Payment Recency is the Strongest Indicator of Churn
+The resulting classification identifies 100% of customers as churned.
 
-Correlation analysis reveals that:
+Key Retention Driver
 
-- Days Since Last Payment has the strongest relationship with churn.
-- Age has very little influence.
-- Monthly Revenue shows only weak correlation.
+The central retention variable in the analysis is:
 
-This suggests that payment behavior is a much better retention indicator than demographic characteristics.
+Days Since Last Payment
 
----
+Longer payment gap → higher likelihood of being classified as churned
 
-## 6. Customer Demographics Alone Do Not Explain Churn
+However, the correlation analysis does not establish a meaningful statistical relationship between churn and the other variables because the churn target contains only one class.
 
-Neither age nor gender demonstrates a strong influence on customer retention.
+The displayed correlations include:
 
-Retention strategies should therefore focus more on customer engagement and payment activity rather than demographic segmentation.
+Age ↔ Monthly Revenue: -0.02
+Age ↔ Days Since Last Payment: -0.01
+Monthly Revenue ↔ Days Since Last Payment: 0.01
+Predictive Modelling Limitation
 
----
+The analysis establishes a churn framework but does not contain a completed predictive machine-learning model.
 
-## 7. Geographic Regions Present Different Revenue Opportunities
+The notebook imports machine-learning libraries including Random Forest, train/test splitting, label encoding, classification reports, and accuracy metrics, but does not provide a completed model-training and evaluation pipeline.
 
-Customer distribution and revenue vary across countries.
+Therefore, the project currently does not report:
 
-Certain regions contribute significantly more revenue while also exhibiting higher churn, indicating opportunities for localized marketing and retention campaigns.
+Model accuracy
+Precision
+Recall
+F1-score
+ROC-AUC
+Confusion matrix
+Feature importance
 
----
+Because the churn target contains only one class, meaningful supervised classification cannot be performed using the current churn definition.
 
-## Business Recommendations
+Business Application
+1. Identify
 
-- Implement early churn detection based on payment inactivity.
-- Launch personalized retention campaigns for Premium users.
-- Introduce loyalty and renewal incentives.
-- Improve the mobile streaming experience.
-- Focus marketing efforts on high-value geographic regions.
-- Build predictive churn models for proactive customer retention.
+Prioritise customers using:
 
----
+Payment Recency → Subscription Value → Geography → Device
 
-## Skills Demonstrated
+Focus particularly on:
 
-- Exploratory Data Analysis (EDA)
-- Data Cleaning
-- Feature Engineering
-- Customer Segmentation
-- Churn Analysis
-- Revenue Analysis
-- Correlation Analysis
-- Business Intelligence
-- Data Visualization
-- Business Storytelling
+Higher-value subscribers
+Customers in major revenue markets
+Customers with extended payment gaps
+Customers contributing greater monthly revenue
+2. Target
+
+Potential retention strategies include:
+
+Premium customers → loyalty benefits and exclusive content
+High-value markets → region-specific retention campaigns
+Long payment gaps → re-engagement campaigns
+Device-specific groups → targeted product and experience improvements
+3. Recover
+
+Measure:
+
+Reactivation rate
+Recovered monthly revenue
+Retention rate
+Campaign conversion rate
+Revenue recovered per campaign
+4. Improve
+
+A production-ready retention system should:
+
+Define churn using a fixed observation period
+Create both active and churned customer classes
+Build a time-based training dataset
+Train and evaluate predictive models
+Rank customers by predicted churn probability
+Measure retention campaign ROI
+Key Business Benefits
+Aspect	Result	Business Impact
+Customer Coverage	2,500 users	Complete customer population analysed
+Customer Attributes	10 variables	Multi-dimensional customer profiling
+Monthly Revenue	$31,271	Quantifies revenue base
+Churn Classification	100%	Highlights inactivity under the current definition
+Revenue Classified as Churned	$31,271/month	Quantifies potential retention exposure
+Largest Plan	999 Basic users	Primary customer segment
+Highest Total Revenue Plan	Basic — $12,469	Largest revenue contribution
+Highest Approx. Revenue/User	Premium — ~$12.59	Highest customer-level revenue
+Top Revenue Market	United States — $5,664	Priority revenue market
+Top Two Markets	US + Spain — $11,326	36.2% of total monthly revenue
+Top Acquisition Month	October 2022 — 521 users	Peak acquisition period
+Largest Device Group	Laptop — 636 users	Largest device population
+Gender Distribution	50.28% / 49.72%	Highly balanced customer base
